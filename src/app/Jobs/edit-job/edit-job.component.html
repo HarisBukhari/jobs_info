@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <h2>Edit Job</h2>
+      <form (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Company</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="company"
+           value="{{job.company}}">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Designation</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="position"
+           value="{{job.position}}">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Description</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="description"
+           value="{{job.description}}">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Status</label>
+          <select class="form-select" aria-label="Default select example">
+            <option value="pending">Pending</option>
+            <option value="interview">Interview</option>
+            <option value="declined">Declined</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

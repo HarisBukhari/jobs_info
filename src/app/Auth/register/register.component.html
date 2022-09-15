@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="exampleInputName1" aria-describedby="emailHelp" [(ngModel)]="obj.name" #name = "ngModel" name="name" required>
+            <p *ngIf="!name.valid && name.touched">Please Enter Vaild Name</p>
+          </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="obj.email" #email = "ngModel" name="email" email required>
+          <p *ngIf="!email.valid && email.touched">Please Enter Vaild Email</p>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="obj.password" #password = "ngModel" name="password" required>
+          <p *ngIf="!password.valid && password.touched">Please Enter Vaild Password</p>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+      </form>
+</div>
+<form #aa="ngForm"></form>

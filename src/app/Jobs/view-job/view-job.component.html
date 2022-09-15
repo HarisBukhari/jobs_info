@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg bg-success">
+    <div class="container-fluid ">
+      <a class="navbar-brand text-light" routerLink="/">INFO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
+        <div class="col-4">
+          <div class="container">
+            <div class="row">
+              <div class="ms-5">
+                    <a class="me-2 text-light btn btn-warning" routerLink="/create-job" *ngIf="islogin">New Post</a>
+                    <a class="me-2 text-light btn btn-primary" routerLink="/edit-job">Edit</a>
+                    <a class="me-2 text-light btn btn-danger" (click)="deletejob()">Delete</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
