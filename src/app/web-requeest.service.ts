@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class WebRequeestService {
   readonly ROOT_URL: any
   token:string =''
   constructor(private http: HttpClient) {
-    this.ROOT_URL = 'http://localhost:3000/api/v1'
+    this.ROOT_URL = environment.URL
+    console.log(environment.URL)
   }
 
   publicjobs(uri: string): Observable<any> {
@@ -37,7 +39,11 @@ export class WebRequeestService {
   }
 
   createjob(uri: string, payload: Object) {
-    return this.http.post(`${this.ROOT_URL}/${uri}`, payload)
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('bearer')}`
+    })
+    return this.http.post(`${this.ROOT_URL}/${uri}`,payload,{headers:headers})
   }
 
   updatejob(uri: string, payload: Object) {

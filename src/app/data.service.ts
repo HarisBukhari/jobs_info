@@ -51,7 +51,7 @@ export class DATAService {
 
 
   register(obj:any) {
-    return this.webRequestService.login('auth/login', obj).pipe(
+    return this.webRequestService.login('auth/register', obj).pipe(
       tap((res: any) => {
         localStorage.setItem('bearer', res.token)
         console.log(localStorage.getItem('bearer'))
@@ -72,12 +72,10 @@ export class DATAService {
   }
 
   createjob(obj:any) {
-    // return this.webRequestService.createjob('jobs',obj).pipe(
-    //   tap((res: any) => {
-    //     res.setHeaders('Authorization', 'Bearer ' + localStorage.getItem('bearer'))
-    //   })
-    // )
-    console.log("Created New Job")
+    return this.webRequestService.createjob('jobs',obj).pipe(
+      tap((res: any) => {
+      })
+    )
   }
 
   updatejob(obj:any) {

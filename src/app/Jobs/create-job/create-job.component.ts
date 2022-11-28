@@ -16,7 +16,14 @@ export class CreateJobComponent implements OnInit {
   }
 
   onSubmit(){
-    this.router.navigate(['']);
+    console.log(this.job)
+    if(this.job.company&&this.job.description&&this.job.position){
+      this.Data.createjob(this.job).subscribe(res=>{
+      this.router.navigate([''])
+    })
+    }else{
+      alert("Please Add Data")
+    }
   }
 
 }

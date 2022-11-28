@@ -26,20 +26,13 @@ export class RegisterComponent implements OnInit {
 
   }
   onSubmit(form: NgForm) {
-    // if(this.obj.email&&this.obj.name&&this.obj.password){
-    //   this.Data.register(this.obj).subscribe(res=>{
-    //   this.router.navigate([''])
-    // })
-    // }else{
-    //   alert("Please Add Data")
-    // }
-    console.log(form.value)
-    console.log(this.myform)
-    this.myform.setValue({
-      name: 'HHH',
-      email: this.myform.value.email,
-      password: this.myform.value.password
+    if(this.obj.email&&this.obj.name&&this.obj.password){
+      this.Data.register(this.obj).subscribe(res=>{
+      this.router.navigate([''])
     })
+    }else{
+      alert("Please Add Data")
+    }
   }
 
   add() {

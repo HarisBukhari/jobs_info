@@ -18,7 +18,7 @@ export class JobsComponent implements OnInit {
     this.Data.publicjob()
       .subscribe(
         data => {
-          this.requests = data.jobs
+          this.requests = data.jobs.reverse()
           this.Data.setjob(this.requests[0])
         }
       )

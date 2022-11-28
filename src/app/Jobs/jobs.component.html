@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-3 p-3" style=" background-color: #e6f2ff;;">
+    <div class="col-3 p-3 scrollbar" style=" background-color: #e6f2ff;" id="style-1">
       <div class="container">
-        <!-- NG FOR IS HERE -->
-        <ng-container *ngFor="let job of requests">
-          <div class="row ms-1 mt-4" style=" width: 400px; height: 75px;" #jobsdata >
-            <app-job [job]="job" ></app-job>
-          </div>
-        </ng-container>
-      </div>
+          <!-- NG FOR IS HERE -->
+          <ng-container *ngFor="let job of requests">
+            <div class="row ms-1 mt-4" style=" width: 400px; height: 75px;" #jobsdata >
+              <app-job [job]="job" ></app-job>
+            </div>
+          </ng-container>
+        </div>
     </div>
     <div class="col-9" style=" height: 1000px;">
       <div class="container">
