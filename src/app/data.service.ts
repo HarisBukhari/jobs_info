@@ -81,14 +81,17 @@ export class DATAService {
   updatejob(obj:any) {
     return this.webRequestService.updatejob('jobs',obj).pipe(
       tap((res: any) => {
-        res.setHeaders('Authorization', 'Bearer ' + localStorage.getItem('bearer'))
       })
     )
   }
 
   
-  deletejob() {
-    return this.webRequestService.deletejob('public')
+  deletejob(obj:any) {
+    return this.webRequestService.deletejob('jobs',obj).pipe(
+      tap((res: any) => {
+        console.log('Deleted')
+      })
+    )
   }
 
 }

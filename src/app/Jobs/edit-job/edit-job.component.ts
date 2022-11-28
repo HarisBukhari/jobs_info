@@ -19,7 +19,13 @@ export class EditJobComponent implements OnInit {
   }
 
   onSubmit(){
-    this.router.navigate(['']);
+    if(this.job.company&&this.job.description&&this.job.position){
+      this.Data.updatejob(this.job).subscribe(res=>{
+      this.router.navigate([''])
+    })
+    }else{
+      alert("Please Add Data")
+    }
   }
 
 }

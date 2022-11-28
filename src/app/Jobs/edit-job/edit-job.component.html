@@ -6,17 +6,17 @@
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Company</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="company"
-           value="{{job.company}}">
+            [(ngModel)]="job.company" value="{{job.company}}">
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Designation</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="position"
-           value="{{job.position}}">
+          [(ngModel)]="job.position" value="{{job.position}}">
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Description</label>
           <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="description"
-           value="{{job.description}}">
+          [(ngModel)]="job.description" value="{{job.description}}">
         </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Status</label>
@@ -26,7 +26,7 @@
             <option value="declined">Declined</option>
           </select>
         </div>
-        <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
   </div>

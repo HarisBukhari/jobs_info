@@ -46,12 +46,22 @@ export class WebRequeestService {
     return this.http.post(`${this.ROOT_URL}/${uri}`,payload,{headers:headers})
   }
 
-  updatejob(uri: string, payload: Object) {
-    return this.http.patch(`${this.ROOT_URL}/${uri}`, payload)
+  updatejob(uri: string, payload: any) {
+    uri+=`/${payload._id}`
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('bearer')}`
+    })
+    return this.http.patch(`${this.ROOT_URL}/${uri}`,payload,{headers:headers})
   }
 
-  deletejob(uri: string) {
-    return this.http.delete(`${this.ROOT_URL}/${uri}`)
+  deletejob(uri: string, payload: any) {
+    uri+=`/${payload._id}`
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${localStorage.getItem('bearer')}`
+    })
+    return this.http.delete(`${this.ROOT_URL}/${uri}`,{headers:headers})
   }
 
 

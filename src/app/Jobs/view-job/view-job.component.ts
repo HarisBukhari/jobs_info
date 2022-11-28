@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DATAService } from 'src/app/data.service';
 
 @Component({
@@ -9,20 +10,20 @@ import { DATAService } from 'src/app/data.service';
 export class ViewJobComponent implements OnInit {
   @Input() job: any = {}
   islogin:boolean = false;
-  constructor(private Data: DATAService) { }
+  constructor(private router: Router,private Data: DATAService) { }
 
+  ngDoCheck(){
+    this.job=this.Data.getjob()
+    console.log(this.Data.isloggedIn$)
+  }
 
   ngOnInit(): void {
-    this.Data.isloggedIn$.subscribe(res=>{
-      this.islogin=res
-      this.job = this.Data.getjob()
-      console.log(this.job)
-    })
   }
 
   deletejob(){
-    this.Data.delete()
+    this.Data.deletejob(this.job).subscribe(res=>{
+    this.router.navigate([''])
+  })
   }
-
 
 }
